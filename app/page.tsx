@@ -1,0 +1,56 @@
+'use client';
+import Header from '@/components/header'
+import Hero from '@/components/hero'
+import Services from '@/components/services'
+import Benefits from '@/components/benefits'
+import CaseStudy from '@/components/case-study'
+import Testimonials from '@/components/testimonials'
+import FAQ from '@/components/faq'
+import Footer from '@/components/footer'
+import CursorEffect from '@/components/cursor-effect'
+import Particles from '@/components/particles';
+import LoadingScreen from '@/components/LoadingScreen';
+import { useState } from 'react';
+export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  return (
+    <div className="min-h-screen bg-black" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Particles as background */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+          width: '100%',
+          height: '100%',
+          pointerEvents: 'none'
+        }}
+      >
+        <Particles
+          particleColors={['#ffcc00', '#ffffff']}
+          particleCount={3000}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+      </div>
+      {/* Foreground content */}
+      <CursorEffect />
+      <Header />
+      <main style={{ position: 'relative', zIndex: 1 }}>
+        <Hero />
+        <Testimonials />
+        <FAQ />
+      </main>
+      {loading && (
+        <LoadingScreen onFinish={() => setLoading(false)} />
+      )}
+      <Footer />
+    </div>
+  )
+}
+
