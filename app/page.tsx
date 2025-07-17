@@ -44,12 +44,7 @@ export default function Home() {
         <Testimonials />
         <FAQ />
       </main>
-      {/* Netlify hidden form for build-time detection */}
-      <form name="contact" data-netlify="true" hidden>
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <textarea name="message"></textarea>
-      </form>
+      
       {loading && (
         <LoadingScreen onFinish={() => setLoading(false)} />
       )}
