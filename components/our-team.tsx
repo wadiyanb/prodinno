@@ -6,99 +6,129 @@ import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 const departments = [
-  { id: 'all', name: 'View all' },
-  { id: 'management', name: 'Management' },
+  { id: 'board', name: 'Board' },
+  { id: 'product', name: 'Product Development and Manufacturing' },
   { id: 'technical', name: 'Technical' },
-  { id: 'design', name: 'Design' },
-  { id: 'marketing', name: 'Marketing' },
-  { id: 'sales', name: 'Sales' },
-  { id: 'operations', name: 'Operations' }
+  { id: 'design', name: 'Design & Content' },
+  { id: 'operations', name: 'Operations & Logistics' },
+  { id: 'social', name: 'Social Media and Outreach' }
 ]
 
 const teamMembers = [
+  // Board members (Leads)
   {
-    name: 'Soham Datta',
-    role: 'Co-Founder and CEO',
+    name: 'Ranvir Deshmukh',
+    role: 'General Secretary',
     image: '/placeholder.svg',
-    department: 'management'
+    department: 'board'
   },
   {
-    name: 'Soham Datta',
-    role: 'Co-Founder and CTO',
+    name: 'Piyush Arora',
+    role: 'Joint Secretary',
     image: '/placeholder.svg',
-    department: 'management'
+    department: 'board'
   },
   {
-    name: 'Soham Datta',
-    role: 'Lead Developer',
+    name: 'Arpita Kumar',
+    role: 'Treasurer',
+    image: '/placeholder.svg',
+    department: 'board'
+  },
+  {
+    name: 'Agrim Gussain',
+    role: 'Board Member',
+    image: '/placeholder.svg',
+    department: 'board'
+  },
+  {
+    name: 'Abhinav Vasudevan',
+    role: 'Board Member',
+    image: '/placeholder.svg',
+    department: 'board'
+  },
+  // Technical Heads (Leads)
+  {
+    name: 'Sekkappan Vinaiteerthan',
+    role: 'Technical Head',
     image: '/placeholder.svg',
     department: 'technical'
   },
   {
-    name: 'Soham Datta',
-    role: 'Backend Engineer',
+    name: 'Arzaan Wadia',
+    role: 'Technical Head',
     image: '/placeholder.svg',
     department: 'technical'
   },
+  // Product Manufacturing (Leads)
   {
-    name: 'Soham Datta',
-    role: 'UI/UX Designer',
+    name: 'Mohammed Faheem',
+    role: 'Product Manufacturing Head',
     image: '/placeholder.svg',
-    department: 'design'
+    department: 'product'
   },
   {
-    name: 'Soham Datta',
-    role: 'Product Designer',
+    name: 'Srinnath Krishnan',
+    role: 'Product Manufacturing Head',
     image: '/placeholder.svg',
-    department: 'design'
+    department: 'product'
   },
+  // Operations and Logistics (Leads)
   {
-    name: 'Soham Datta',
-    role: 'Marketing Director',
-    image: '/placeholder.svg',
-    department: 'marketing'
-  },
-  {
-    name: 'Soham Datta',
-    role: 'Content Strategist',
-    image: '/placeholder.svg',
-    department: 'marketing'
-  },
-  {
-    name: 'Soham Datta',
-    role: 'Sales Director',
-    image: '/placeholder.svg',
-    department: 'sales'
-  },
-  {
-    name: 'Soham Datta',
-    role: 'Account Executive',
-    image: '/placeholder.svg',
-    department: 'sales'
-  },
-  {
-    name: 'Soham Datta',
-    role: 'Operations Manager',
+    name: 'Advait Pande',
+    role: 'Operations & Logistics Head',
     image: '/placeholder.svg',
     department: 'operations'
   },
   {
-    name: 'Soham Datta',
-    role: 'HR Manager',
+    name: 'Suryansh Rai',
+    role: 'Operations & Logistics Head',
     image: '/placeholder.svg',
     department: 'operations'
-  }
-]
+  },
+  // Design & Content (Leads)
+  {
+    name: 'Adithi Sharathkumar',
+    role: 'Design & Content Head',
+    image: '/placeholder.svg',
+    department: 'design'
+  },
+  {
+    name: 'Jiya Sharma',
+    role: 'Design & Content Head',
+    image: '/placeholder.svg',
+    department: 'design'
+  },
+  // Social Media and Outreach (Leads)
+  {
+    name: 'Saksham Rao',
+    role: 'Social Media & Outreach Head',
+    image: '/placeholder.svg',
+    department: 'social'
+  },
+  {
+    name: 'Siya Srivastava',
+    role: 'Social Media & Outreach Head',
+    image: '/placeholder.svg',
+    department: 'social'
+  },
+];
 
 export default function OurTeam() {
-  const [activeDepartment, setActiveDepartment] = useState('all')
+  const [activeDepartment, setActiveDepartment] = useState('board')
 
   const filteredMembers = teamMembers.filter(
-    member => activeDepartment === 'all' || member.department === activeDepartment
+    member => activeDepartment === 'board' ? member.department === 'board' : member.department === activeDepartment
   )
 
+  // Group members by department
+  const grouped = departments
+    .map(dept => {
+      const members = teamMembers.filter(m => m.department === dept.id)
+      return { id: dept.id, dept: dept.name, members }
+    })
+
   return (
-    <section className="py-24 bg-black">
+    <section id="our-team" className="py-24 ">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-6 text-white">
@@ -128,38 +158,39 @@ export default function OurTeam() {
           </div>
         </div>
 
-        <motion.div 
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
-          layout
-        >
-          {filteredMembers.map((member, index) => (
-            <motion.div
-              key={member.name}
-              layout
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.3,
-                delay: index * 0.1,
-                layout: { duration: 0.3 }
-              }}
-              className="group relative bg-gray-900 rounded-2xl overflow-hidden"
-            >
-              <div className="aspect-[4/5] relative">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover"
-                />
+        <div className="space-y-12">
+          {grouped
+            .filter(g => activeDepartment === g.id)
+            .map(({ dept, members, id }) => (
+              <div key={dept} id={id} className="flex flex-col items-center">
+                <h2 className="text-2xl font-bold text-white mb-4 font-serif">{dept}</h2>
+                <div className="flex flex-col gap-2 w-full max-w-xl items-center">
+                  {dept === 'Board' ? (
+                    members.map((member, idx) => (
+                      <div key={member.name + idx} className="font-bold text-lg text-[#FFD700] font-serif text-center w-full">
+                        {member.name} <span className="text-white font-normal">- {member.role}</span>
+                      </div>
+                    ))
+                  ) : (
+                    <>
+                      {/* Highlight leads */}
+                      {members.slice(0, 2).map((member, idx) => (
+                        <div key={member.name + idx} className="font-bold text-lg text-[#FFD700] font-serif text-center w-full">
+                          {member.name} <span className="text-white font-normal">- {member.role}</span>
+                        </div>
+                      ))}
+                      {/* List other members */}
+                      {members.slice(2).map((member, idx) => (
+                        <div key={member.name + idx} className="text-white text-base font-serif text-center w-full">
+                          {member.name} <span className="text-gray-400">- {member.role}</span>
+                        </div>
+                      ))}
+                    </>
+                  )}
+                </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 bg-gray-900/90 backdrop-blur-sm">
-                <h3 className="font-medium text-white text-sm sm:text-base">{member.name}</h3>
-                <p className="text-xs sm:text-sm text-gray-400">{member.role}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+            ))}
+        </div>
       </div>
     </section>
   )

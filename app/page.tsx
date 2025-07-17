@@ -11,6 +11,7 @@ import CursorEffect from '@/components/cursor-effect'
 import Particles from '@/components/particles';
 import LoadingScreen from '@/components/LoadingScreen';
 import { useState } from 'react';
+import OurTeam from '@/components/our-team';
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
@@ -29,7 +30,7 @@ export default function Home() {
       >
         <Particles
           particleColors={['#ffcc00', '#ffffff']}
-          particleCount={3000}
+          particleCount={2000}
           particleSpread={10}
           speed={0.1}
           particleBaseSize={100}
@@ -43,13 +44,13 @@ export default function Home() {
       <Header />
       <main style={{ position: 'relative', zIndex: 1 }}>
         <Hero />
+        <OurTeam />
         <Testimonials />
         <FAQ />
       </main>
       {loading && (
         <LoadingScreen onFinish={() => setLoading(false)} />
       )}
-      <Footer />
     </div>
   )
 }

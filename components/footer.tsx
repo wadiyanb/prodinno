@@ -19,7 +19,7 @@ export default function Footer() {
             </Link>
             <Link href="https://www.linkedin.com/in/tech-savvy-guy" className="text-gray-400 hover:text-white transition-colors">
               <FaLinkedinIn size={20} />
-            </Link>
+            </Link> 
           </div>
         </div>
 

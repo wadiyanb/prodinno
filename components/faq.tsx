@@ -20,17 +20,17 @@ const faqs = [
   },
   {
     question: "Do I need prior experience to join?",
-    answer: "Not at all! We welcome members of all skill levels. Whether you&apos;re just starting out or have years of experience, ProdInno provides learning opportunities for everyone. Our community is built on collaboration and mutual growth."
+    answer: "Not at all! We welcome members of all skill levels. Whether you're just starting out or have years of experience, ProdInno provides learning opportunities for everyone. Our community is built on collaboration and mutual growth."
   },
   {
     question: "What are the membership benefits?",
-    answer: "Members get access to exclusive workshops, networking events, mentorship programs, project opportunities, and our resource library. You&apos;ll also receive certificates for completed workshops and projects, plus opportunities to work on real-world client projects."
+    answer: "Members get access to exclusive workshops, networking events, mentorship programs, project opportunities, and our resource library. You will also receive certificates for completed workshops and projects, plus opportunities to work on real-world client projects."
   }
 ]
 
 export default function FAQ() {
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section id="faq" className="py-32 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="h-full w-full bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
       </div>

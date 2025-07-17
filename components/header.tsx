@@ -22,26 +22,35 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50" style={{ background: 'linear-gradient(135deg, #facc15 0%, #facc15 22%, #000 38%, #000 100%)' }}>
+    <header className="fixed top-0 left-0 right-0 z-50" style={{ background: 'black' }}>
       <div className="container mx-auto px-4">
         <nav className="flex items-center h-16">
           <Link href="/" className="flex items-center gap-2">
             {/* Render static logo image for header */}
-            <div style={{ width: 128, height: 170 }}>
-              <Image src="/prodinno.png" alt="ProdInno Logo" width={128} height={90} priority />
+            <div style={{ width: 128, height: 200, position: 'relative' }}>
+              <Image
+                src="/Prodinno(1).png"
+                alt="ProdInno Logo"
+                fill
+                style={{
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 40px 0.1px rgba(254, 218, 90, 1))'
+                }}
+                priority
+              />
             </div>
           </Link>
 
           <div className="hidden md:flex items-center gap-6 ml-8">
-            <Link href="/" className="text-black hover:text-[#FFD700] transition-colors">
+            <a href="#home" className="text-white hover:text-[#FFD700] transition-colors">
               Home
-            </Link>
-            <Link href="/our-team" className="text-black hover:text-[#FFD700] transition-colors">
+            </a>
+            <a href="#our-team" className="text-white hover:text-[#FFD700] transition-colors">
               Our Team
-            </Link>
-            <Link href="/faq" className="text-black hover:text-[#FFD700] transition-colors">
+            </a>
+            <a href="#faq" className="text-white hover:text-[#FFD700] transition-colors">
               FAQ
-            </Link>
+            </a>
           </div>
 
           <div className="ml-auto flex items-center">
