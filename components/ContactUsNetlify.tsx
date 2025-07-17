@@ -8,7 +8,7 @@ const ContactUsNetlify: React.FC = () => {
       <div className="max-w-2xl mx-auto px-4 py-8 rounded-xl bg-black/60 shadow-2xl backdrop-blur-md">
         <header className="text-center mb-8 pb-6 border-b border-white/10">
           <h1 className={`text-3xl md:text-4xl font-bold text-[#FFD700] mb-2 drop-shadow font-sans ${technorFont}`}>Contact Us</h1>
-          <p className="text-gray-300 text-base md:text-lg drop-shadow">We'd love to hear from you. Fill out the form below and we'll get back to you soon.</p>
+          <p className="text-gray-300 text-base md:text-lg drop-shadow">We&apos;d love to hear from you. Fill out the form below and we&apos;ll get back to you soon.</p>
         </header>
         <form
           name="contact"
