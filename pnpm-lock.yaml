@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@netlify/next':
+        specifier: ^1.4.9
+        version: 1.4.9(next@14.2.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@radix-ui/react-accordion':
         specifier: ^1.2.2
         version: 1.2.11(@types/react-dom@18.3.7(@types/react@18.3.23))(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -182,6 +185,12 @@ packages:
 
   '@napi-rs/wasm-runtime@0.2.11':
     resolution: {integrity: sha512-9DPkXtvHydrcOsopiYpUgPHpmj0HWZKMUnL2dZqpvC42lsratuBG06V5ipyno0fUek5VlFsNQ+AcFATSrJXgMA==}
+
+  '@netlify/next@1.4.9':
+    resolution: {integrity: sha512-lrbY+CEhS9x0jV7oXVYi/rqxZ6ht5KeLGNZsgIPI34kpDaBuD/EfsyKa28BWeSrFalxRZmkMxQYRSTa82v3roQ==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      next: '>=12.2.0'
 
   '@next/env@14.2.16':
     resolution: {integrity: sha512-fLrX5TfJzHCbnZ9YUSnGW63tMV3L4nSfhgOQ0iCcX21Pt+VSTDuaLsSuL8J/2XAiVA5AnzvXDpf6pMs60QxOag==}
@@ -2415,6 +2424,10 @@ snapshots:
       '@emnapi/runtime': 1.4.3
       '@tybys/wasm-util': 0.9.0
     optional: true
+
+  '@netlify/next@1.4.9(next@14.2.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+    dependencies:
+      next: 14.2.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   '@next/env@14.2.16': {}
 
