@@ -33,7 +33,7 @@ const teamMembers = [
     department: 'board'
   },
   {
-    name: 'Agrim Gussain',
+    name: 'Agrim Gusain',
     role: 'Board Member',
     image: '/placeholder.svg',
     department: 'board'

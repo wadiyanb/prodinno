@@ -8,6 +8,7 @@ import Particles from '@/components/particles';
 import LoadingScreen from '@/components/LoadingScreen';
 import { useState } from 'react';
 import OurTeam from '@/components/our-team';
+import ContactUsNetlify from '@/components/ContactUsNetlify';
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
@@ -43,6 +44,7 @@ export default function Home() {
         <OurTeam />
         <Testimonials />
         <FAQ />
+        <ContactUsNetlify/>
       </main>
       {loading && (
         <LoadingScreen onFinish={() => setLoading(false)} />

@@ -18,7 +18,7 @@ export default function Header() {
             {/* Render static logo image for header */}
             <div style={{ width: 128, height: 240, position: 'relative', marginTop: '10px' }}>
               <Image
-                src="/Prodinno_white_logo (1)[1].png"
+                src="/Prodinno_white_logo.png"
                 alt="ProdInno Logo"
                 fill
                 style={{
