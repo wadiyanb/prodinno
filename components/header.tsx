@@ -27,14 +27,13 @@ export default function Header() {
         <nav className="flex items-center h-16">
           <Link href="/" className="flex items-center gap-2">
             {/* Render static logo image for header */}
-            <div style={{ width: 128, height: 240, position: 'relative', marginTop: '-90px' }}>
+            <div style={{ width: 128, height: 240, position: 'relative', marginTop: '10px' }}>
               <Image
-                src="/Prodinno(1).png"
+                src="/Prodinno_white_logo (1)[1].png"
                 alt="ProdInno Logo"
                 fill
                 style={{
-                  objectFit: 'contain',
-                  filter: 'drop-shadow(0 50px 0.1px rgba(254, 218, 90, 1))'
+                  objectFit: 'contain'
                 }}
                 priority
               />
