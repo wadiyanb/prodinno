@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button"
 const faqs = [
   {
     question: "How can I join ProdInno?",
-    answer: "Joining ProdInno is easy! We welcome all students interested in product design and innovation. Simply attend our next general meeting or sign up through our registration form. We have meetings every Thursday at 6 PM in the Innovation Hub."
+    answer: "Joining ProdInno is easy! We welcome all students interested in product design and innovation. Simply attend our next general meeting or sign up through our registration form."
   },
   {
     question: "What activities does ProdInno organize?",
@@ -23,7 +23,7 @@ const faqs = [
     answer: "Not at all! We welcome members of all skill levels. Whether you're just starting out or have years of experience, ProdInno provides learning opportunities for everyone. Our community is built on collaboration and mutual growth."
   },
   {
-    question: "What are the membership benefits?",
+    question: "What are the club membership benefits?",
     answer: "Members get access to exclusive workshops, networking events, mentorship programs, project opportunities, and our resource library. You will also receive certificates for completed workshops and projects, plus opportunities to work on real-world client projects."
   }
 ]

@@ -12,6 +12,7 @@ import Particles from '@/components/particles';
 import LoadingScreen from '@/components/LoadingScreen';
 import { useState } from 'react';
 import OurTeam from '@/components/our-team';
+import dynamic from 'next/dynamic';
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
