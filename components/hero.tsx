@@ -1,10 +1,8 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { motion } from 'framer-motion'
+
 import Spline from '@splinetool/react-spline'
 import LogoHeader from './Logo'
-import ScrollFloat from './ScrollFloat'
 import localFont from 'next/font/local'
 
 const technor = localFont({

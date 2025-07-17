@@ -1,8 +1,8 @@
 'use client';
 
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import { useGLTF, Center } from '@react-three/drei';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import * as THREE from 'three';
 
 function StaticLogo() {
@@ -22,7 +22,7 @@ function StaticLogo() {
 
 // --- Main Exported Component ---
 export default function LogoHeader() {
-  const [loading, setLoading] = useState(true);
+ 
 
   return (
     (

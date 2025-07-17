@@ -3,20 +3,9 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { Menu } from 'lucide-react'
-import localFont from 'next/font/local'
 import { Button } from '@/components/ui/button'
 import { PiLightbulbFilamentFill } from "react-icons/pi";
-import { Canvas } from '@react-three/fiber';
-import { Suspense } from 'react';
-import LogoHeader from './Logo';
 import Image from 'next/image';
-
-const technor = localFont({
-  src: '../app/fonts/Technor.woff',
-  variable: '--font-technor',
-  weight: '100 900'
-});
-
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)

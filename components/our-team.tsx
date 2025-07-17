@@ -1,8 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 const departments = [
@@ -116,9 +114,7 @@ const teamMembers = [
 export default function OurTeam() {
   const [activeDepartment, setActiveDepartment] = useState('board')
 
-  const filteredMembers = teamMembers.filter(
-    member => activeDepartment === 'board' ? member.department === 'board' : member.department === activeDepartment
-  )
+ 
 
   // Group members by department
   const grouped = departments
