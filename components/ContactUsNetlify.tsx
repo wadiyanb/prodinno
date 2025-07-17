@@ -65,7 +65,7 @@ const ContactUsNetlify: React.FC = () => {
         </form>
         {/* Netlify form success message placeholder */}
         <div className="hidden" data-netlify-success>
-          <p className="text-green-400 text-center mt-6">Thank you for contacting us! We'll be in touch soon.</p>
+          <p className="text-green-400 text-center mt-6">Thank you for contacting us! We&apos;ll be in touch soon.</p>
         </div>
       </div>
     </section>
