@@ -8,6 +8,7 @@ import Particles from '@/components/particles';
 import LoadingScreen from '@/components/LoadingScreen';
 import { useState } from 'react';
 import OurTeam from '@/components/our-team';
+import ContactUsForm from '@/components/ContactUsForm';
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
@@ -44,6 +45,7 @@ export default function Home() {
         <Testimonials />
         <FAQ />
       </main>
+      <ContactUsForm />
       
       {loading && (
         <LoadingScreen onFinish={() => setLoading(false)} />

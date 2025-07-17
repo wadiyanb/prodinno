@@ -7,7 +7,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Button } from "@/components/ui/button"
 
 const faqs = [
   {
@@ -97,12 +96,6 @@ export default function FAQ() {
             viewport={{ once: true }}
           >
             <p className="text-gray-400 mb-4 text-sm">Still have questions? We&apos;re here to help!</p>
-            <Button className="bg-[hsl(47.9,95.8%,53.1%)] text-black hover:bg-[hsl(47.9,95.8%,48%)] font-medium px-6 py-2 h-auto text-sm"
-              onClick={() => {
-                window.open('https://www.sohamdatta.com', '_blank')
-              }}>
-              Contact Us <span className="ml-2">→</span>
-            </Button>
           </motion.div>
         </div>
       </div>

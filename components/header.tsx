@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { Menu } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { PiLightbulbFilamentFill } from "react-icons/pi";
 import Image from 'next/image';
 
@@ -39,6 +38,9 @@ export default function Header() {
             <a href="#faq" className="text-white hover:text-[#FFD700] transition-colors">
               FAQ
             </a>
+            <a href="/contact" className="text-white hover:text-[#FFD700] transition-colors">
+              Contact
+            </a>
           </div>
 
           <div className="ml-auto flex items-center">
@@ -48,12 +50,6 @@ export default function Header() {
             >
               {isOpen ? <PiLightbulbFilamentFill size={24} /> : <Menu size={24} />}
             </button>
-            <Button className="hidden md:inline-flex bg-[#FFD700] text-black hover:bg-[#FFC700] font-medium px-6"
-              onClick={() => {
-                window.open('https://www.sohamdatta.com', '_blank')
-              }}>
-              Contact Us
-            </Button>
           </div>
         </nav>
       </div>
@@ -96,12 +92,13 @@ export default function Header() {
             >
               FAQ
             </Link>
-            <Button className="bg-[#FFD700] text-black hover:bg-[#FFC700] font-medium mt-4"
-              onClick={() => {
-                window.open('https://www.sohamdatta.com', '_blank')
-              }}>
-              Contact Us
-            </Button>
+            <Link
+              href="/contact"
+              className="text-white hover:text-[#FFD700] transition-colors py-4"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact
+            </Link>
           </div>
         </div>
       )}
