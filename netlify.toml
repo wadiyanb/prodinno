@@ -7,5 +7,5 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/__api__/:splat"
+  to = "/.netlify/functions/next-runtime"
   status = 200
