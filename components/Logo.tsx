@@ -1,7 +1,7 @@
 'use client';
 
+import { useGLTF, Center} from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import { useGLTF, Center } from '@react-three/drei';
 import React, { useRef } from 'react';
 import * as THREE from 'three';
 
