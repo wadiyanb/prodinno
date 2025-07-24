@@ -17,7 +17,7 @@
     "@pnotify/core": "^5.2.0",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-slot": "^1.2.3",
-    "@react-three/drei": "^9.122.0",
+    "@react-three/drei": "^9.56.4",
     "@react-three/fiber": "^9.2.0",
     "@splinetool/react-spline": "^4.1.0",
     "class-variance-authority": "^0.7.1",
