@@ -12,6 +12,7 @@
     "@netlify/blobs": "^10.0.7",
     "@netlify/dev-utils": "^4.1.0",
     "@netlify/functions": "^4.1.15",
+    "@netlify/types": "^2.0.2",
     "@netlify/zip-it-and-ship-it": "^14.1.0",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-slot": "^1.1.1",
