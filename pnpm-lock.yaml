@@ -17,6 +17,9 @@ importers:
       '@netlify/functions':
         specifier: ^4.1.15
         version: 4.1.15
+      '@netlify/zip-it-and-ship-it':
+        specifier: ^14.1.0
+        version: 14.1.0
       '@radix-ui/react-accordion':
         specifier: ^1.2.2
         version: 1.2.11(@types/react-dom@18.3.7(@types/react@18.3.23))(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
