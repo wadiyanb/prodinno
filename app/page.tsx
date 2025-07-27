@@ -1,7 +1,6 @@
 'use client';
 import Header from '@/components/header'
 import Hero from '@/components/hero'
-import Testimonials from '@/components/testimonials'
 import FAQ from '@/components/faq'
 import CursorEffect from '@/components/cursor-effect'
 import Particles from '@/components/particles';
@@ -42,7 +41,6 @@ export default function Home() {
       <main style={{ position: 'relative', zIndex: 1 }}>
         <Hero />
         <OurTeam />
-        <Testimonials />
         <FAQ />
       </main>
       
