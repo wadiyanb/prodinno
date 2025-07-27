@@ -4,15 +4,30 @@ import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
 const departments = [
+  { id: 'faculty', name: 'Faculty Coordinators' },
   { id: 'board', name: 'Board' },
   { id: 'product', name: 'Product Development and Manufacturing' },
   { id: 'technical', name: 'Technical' },
   { id: 'design', name: 'Design & Content' },
   { id: 'operations', name: 'Operations & Logistics' },
-  { id: 'social', name: 'Social Media and Outreach' }
+  { id: 'social', name: 'Social Media and Outreach' },
+  { id: 'finance', name: 'Finance' }
 ]
 
 const teamMembers = [
+  // Faculty Coordinators
+  {
+    name: 'Dr Velmathi G',
+    role: 'Faculty Coordinator',
+    image: '/placeholder.svg',
+    department: 'faculty'
+  },
+  {
+    name: 'Dr David Raj Micheal',
+    role: 'Faculty Coordinator',
+    image: '/placeholder.svg',
+    department: 'faculty'
+  },
   // Board members (Leads)
   {
     name: 'Ranvir Deshmukh',
@@ -109,10 +124,16 @@ const teamMembers = [
     image: '/placeholder.svg',
     department: 'social'
   },
+  {
+    name: 'Harshwardhan Rai Malik',
+    role: 'Finance Head',
+    image: '/placeholder.svg',
+    department: 'finance'
+  }
 ];
 
 export default function OurTeam() {
-  const [activeDepartment, setActiveDepartment] = useState('board')
+  const [activeDepartment, setActiveDepartment] = useState('faculty')
 
  
 
@@ -161,7 +182,13 @@ export default function OurTeam() {
               <div key={dept} id={id} className="flex flex-col items-center">
                 <h2 className="text-2xl font-bold text-white mb-4 font-serif">{dept}</h2>
                 <div className="flex flex-col gap-2 w-full max-w-xl items-center">
-                  {dept === 'Board' ? (
+                  {dept === 'Faculty Coordinators' ? (
+                    members.map((member, idx) => (
+                      <div key={member.name + idx} className="font-bold text-lg text-[#FFD700] font-serif text-center w-full">
+                        {member.name} <span className="text-white font-normal">- {member.role}</span>
+                      </div>
+                    ))
+                  ) : dept === 'Board' ? (
                     members.map((member, idx) => (
                       <div key={member.name + idx} className="font-bold text-lg text-[#FFD700] font-serif text-center w-full">
                         {member.name} <span className="text-white font-normal">- {member.role}</span>
