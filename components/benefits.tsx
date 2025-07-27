@@ -1,6 +1,6 @@
 'use client'
 
-import { Sparkles, BarChart3, Layout } from 'lucide-react'
+import { Sparkles, BarChart3, Layout } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion'
 
 const benefits = [

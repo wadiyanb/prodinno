@@ -45,7 +45,23 @@ export default function Home() {
         <Testimonials />
         <FAQ />
       </main>
-      <ContactUsForm />
+      
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-4 relative z-10">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in-up">
+              Get In Touch
+            </h2>
+            <p className="text-gray-300 text-lg md:text-xl animate-fade-in-up">
+              Ready to innovate? Let&apos;s discuss your next project.
+            </p>
+          </div>
+          <div className="max-w-2xl mx-auto">
+            <ContactUsForm />
+          </div>
+        </div>
+      </section>
       
       {loading && (
         <LoadingScreen onFinish={() => setLoading(false)} />

@@ -38,7 +38,7 @@ export default function Header() {
             <a href="#faq" className="text-white hover:text-[#FFD700] transition-colors">
               FAQ
             </a>
-            <a href="/contact" className="text-white hover:text-[#FFD700] transition-colors">
+            <a href="#contact" className="text-white hover:text-[#FFD700] transition-colors">
               Contact
             </a>
           </div>
@@ -92,13 +92,13 @@ export default function Header() {
             >
               FAQ
             </Link>
-            <Link
-              href="/contact"
+            <a
+              href="#contact"
               className="text-white hover:text-[#FFD700] transition-colors py-4"
               onClick={() => setIsOpen(false)}
             >
               Contact
-            </Link>
+            </a>
           </div>
         </div>
       )}
