@@ -14,7 +14,7 @@ function StaticLogo() {
   return (
     <group ref={groupRef}>
       <Center>
-        <primitive object={scene} scale={30} />
+        <primitive object={scene} scale={25} />
       </Center>
     </group>
   );
@@ -27,7 +27,7 @@ export default function LogoHeader() {
   return (
     (
         <div
-          className="w-full h-[800px]"
+          className="w-full h-[600px]"
           style={{
             background: 'transparent',
             transition: 'opacity 0.6s',

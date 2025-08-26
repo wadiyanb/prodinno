@@ -58,7 +58,7 @@ export default function Services() {
 
         </motion.div>
         <motion.h2
-          className="text-white text-4xl md:text-6xl font-bold mb-16"
+          className="text-white text-3xl md:text-4xl lg:text-6xl font-bold mb-8 md:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -77,8 +77,8 @@ export default function Services() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="relative h-[400px]">
+              <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+                <div className="relative h-[300px] md:h-[400px]">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -86,21 +86,21 @@ export default function Services() {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-8 flex flex-col justify-center">
-                  <h3 className="text-white text-3xl font-bold mb-4">
+                <div className="p-6 md:p-8 flex flex-col justify-center">
+                  <h3 className="text-white text-2xl md:text-3xl font-bold mb-3 md:mb-4">
                     {service.title}
                   </h3>
-                  <div className="space-y-6">
+                  <div className="space-y-4 md:space-y-6">
                     <div>
-                      <h4 className="text-white font-semibold mb-2">{service.subtitle}</h4>
-                      <p className="text-gray-400">{service.description}</p>
+                      <h4 className="text-white font-semibold mb-2 text-sm md:text-base">{service.subtitle}</h4>
+                      <p className="text-gray-400 text-sm md:text-base">{service.description}</p>
                     </div>
                     <div>
-                      <h4 className="text-white font-semibold mb-2">{service.subDescription}</h4>
-                      <p className="text-gray-400">{service.subText}</p>
+                      <h4 className="text-white font-semibold mb-2 text-sm md:text-base">{service.subDescription}</h4>
+                      <p className="text-gray-400 text-sm md:text-base">{service.subText}</p>
                     </div>
                   </div>
-                  <Button className="bg-[#FFD700] text-black hover:bg-[#FFC700] mt-8 w-fit"
+                  <Button className="bg-[#FFD700] text-black hover:bg-[#FFC700] mt-6 md:mt-8 w-full md:w-fit px-4 py-2 md:px-6 md:py-3 text-sm md:text-base"
                     onClick={() => {
                       window.open('https://www.sohamdatta.com', '_blank')
                     }}>

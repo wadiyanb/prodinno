@@ -29,23 +29,23 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-32 relative overflow-hidden">
+    <section id="faq" className="py-20 md:py-32 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <div className="h-full w-full bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+        <div className="h-full w-full bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:2rem_2rem] md:bg-[size:4rem_4rem]"></div>
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none z-10" />
       <div className="container mx-auto px-4 relative z-20">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="w-fit mx-auto px-4 py-1 bg-[#FFD700]/10 rounded-full text-[#FFD700] text-sm mb-6 flex items-center gap-2">
+          <div className="w-fit mx-auto px-3 py-1 md:px-4 md:py-1 bg-[#FFD700]/10 rounded-full text-[#FFD700] text-xs md:text-xs md:text-sm mb-4 md:mb-6 flex items-center gap-2">
             <svg
-              width="12"
-              height="12"
+              width="10"
+              height="10"
               viewBox="0 0 100 100"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -55,10 +55,10 @@ export default function FAQ() {
             </svg>
             GOT QUESTIONS?
           </div>
-          <h2 className="text-white text-4xl md:text-6xl font-bold tracking-tight">
+          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-400 text-xs md:text-sm md:text-base max-w-2xl mx-auto">
             Everything you need to know about joining ProdInno and becoming part of our innovative community
           </p>
         </motion.div>
@@ -70,17 +70,17 @@ export default function FAQ() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Accordion type="single" collapsible className="w-full space-y-4">
+            <Accordion type="single" collapsible className="w-full space-y-3 md:space-y-4">
               {faqs.map((faq, index) => (
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`} 
                   className="border border-gray-800 rounded-lg overflow-hidden backdrop-blur-sm bg-black/40"
                 >
-                  <AccordionTrigger className="text-white hover:text-[hsl(47.9,95.8%,53.1%)] px-6 py-4 text-left text-lg">
+                  <AccordionTrigger className="text-white hover:text-[hsl(47.9,95.8%,53.1%)] px-4 md:px-6 py-3 md:py-4 text-left text-base md:text-lg font-medium">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-400 px-6 pb-4 leading-relaxed">
+                  <AccordionContent className="text-gray-400 px-4 md:px-6 pb-3 md:pb-4 text-xs md:text-sm md:text-base leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -89,13 +89,13 @@ export default function FAQ() {
           </motion.div>
           
           <motion.div 
-            className="mt-8 text-center"
+            className="mt-6 md:mt-8 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <p className="text-gray-400 mb-4 text-sm">Still have questions? We&apos;re here to help!</p>
+            <p className="text-gray-400 mb-4 text-xs md:text-sm">Still have questions? We&apos;re here to help!</p>
           </motion.div>
         </div>
       </div>

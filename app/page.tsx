@@ -45,13 +45,13 @@ export default function Home() {
       </main>
       
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 relative z-10">
+      <section id="contact" className="py-16 md:py-20 px-4 relative z-10">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in-up">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 animate-fade-in-up">
               Get In Touch
             </h2>
-            <p className="text-gray-300 text-lg md:text-xl animate-fade-in-up">
+            <p className="text-gray-300 text-base md:text-lg lg:text-xl animate-fade-in-up">
               Ready to innovate? Let&apos;s discuss your next project.
             </p>
           </div>
