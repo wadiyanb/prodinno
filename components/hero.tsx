@@ -1,9 +1,14 @@
 'use client'
-
-
-import Spline from '@splinetool/react-spline'
+import { useEffect, useState, Suspense } from 'react'
+import dynamic from 'next/dynamic'
 import LogoHeader from './Logo'
 import localFont from 'next/font/local'
+
+// Import Spline dynamically without SSR
+const Spline = dynamic(() => import('@splinetool/react-spline'), {
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-black" />
+})
 
 const technor = localFont({
   src: [
@@ -19,16 +24,56 @@ const technor = localFont({
 })
 
 export default function Hero() {
+  const [isMobile, setIsMobile] = useState(false)
+  const [shouldLoadSpline, setShouldLoadSpline] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  useEffect(() => {
+    // Load Spline after initial render on mobile
+    if (isMobile) {
+      const timer = setTimeout(() => {
+        setShouldLoadSpline(true)
+      }, 2000) // Delay of 2 seconds
+      return () => clearTimeout(timer)
+    } else {
+      setShouldLoadSpline(true)
+    }
+  }, [isMobile])
+
   return (
     <section id="home" className="relative w-full h-screen overflow-hidden">
-      {/* Spline as background with responsive positioning */}
-      <div className="absolute inset-0 w-full h-full z-0 lg:flex lg:justify-end">
-        <div className="w-full lg:w-[110%] h-full lg:translate-x-[20vw]">
-          <Spline scene="https://prod.spline.design/nQVTiBYyKdaa7z6j/scene.splinecode" />
+      {/* Spline background with dynamic loading */}
+      {shouldLoadSpline && (
+        <div className="absolute inset-0 w-full h-full z-0 lg:flex lg:justify-end">
+          <div className="w-full lg:w-[110%] h-full lg:translate-x-[20vw]">
+            <Suspense fallback={<div className="w-full h-full bg-black" />}>
+              <Spline 
+                scene="https://prod.spline.design/nQVTiBYyKdaa7z6j/scene.splinecode"
+                style={{ 
+                  width: '100%',
+                  height: '100%',
+                  transform: `scale(${isMobile ? 1 : 1})` 
+                }}
+              />
+            </Suspense>
+          </div>
         </div>
-      </div>
+      )}
       
-      {/* Foreground content with responsive sizing */}
+      {/* Black background while loading */}
+      {!shouldLoadSpline && (
+        <div className="absolute inset-0 bg-black z-0" />
+      )}
+      
+      {/* Rest of the content */}
       <div className="relative z-10 flex flex-col items-center lg:items-start justify-start h-full -mt-28 md:-mt-32 lg:-mt-16 px-0">
         <div className="relative w-[200vw] flex items-center justify-center transform scale-[0.7] sm:scale-[0.55] md:scale-[0.65] lg:scale-[1] lg:justify-start lg:ml-[-1050px] mx-auto -translate-x-28">
           <LogoHeader />
@@ -42,7 +87,7 @@ export default function Hero() {
         </div>
       </div>
       
-      {/* Mobile overlay for better text visibility */}
+      {/* Mobile overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent lg:hidden z-5" />
     </section>
   )
