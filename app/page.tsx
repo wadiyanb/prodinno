@@ -7,14 +7,24 @@ import Particles from '@/components/particles';
 import LoadingScreen from '@/components/LoadingScreen';
 import { useState } from 'react';
 import OurTeam from '@/components/our-team';
-import ContactUsForm from '@/components/ContactUsForm';
+import RecruitmentForm from '@/components/RecruitmentForm';
 export default function Home() {
   const [loading, setLoading] = useState(true);
+  const [contentVisible, setContentVisible] = useState(false);
+
+  const handleLoadingFinish = () => {
+    setLoading(false);
+    // Add a small delay before showing content to ensure smooth transition
+    setTimeout(() => {
+      setContentVisible(true);
+    }, 100);
+  };
 
   return (
     <div className="min-h-screen bg-black" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Particles as background */}
       <div
+        className={`transition-opacity duration-700 ${contentVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{
           position: 'absolute',
           inset: 0,
@@ -35,34 +45,37 @@ export default function Home() {
           disableRotation={false}
         />
       </div>
-      {/* Foreground content */}
-      <CursorEffect />
-      <Header />
-      <main style={{ position: 'relative', zIndex: 1 }}>
-        <Hero />
-        <OurTeam />
-        <FAQ />
-      </main>
       
-      {/* Contact Section */}
-      <section id="contact" className="py-16 md:py-20 px-4 relative z-10">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 animate-fade-in-up">
-              Get In Touch
-            </h2>
-            <p className="text-gray-300 text-base md:text-lg lg:text-xl animate-fade-in-up">
-              Ready to innovate? Let&apos;s discuss your next project.
-            </p>
+      {/* Foreground content with fade-in animation */}
+      <div className={`transition-opacity duration-700 ${contentVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <CursorEffect />
+        <Header />
+        <main style={{ position: 'relative', zIndex: 1 }}>
+          <Hero />
+          <OurTeam />
+          <FAQ />
+        </main>
+        
+        {/* Recruitment Section */}
+        <section id="recruitment" className="py-16 md:py-20 px-4 relative z-10">
+          <div className="container mx-auto max-w-4xl">
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 animate-fade-in-up">
+                Join Our Team
+              </h2>
+              <p className="text-gray-300 text-base md:text-lg lg:text-xl animate-fade-in-up">
+                Ready to be part of something innovative? Apply to join ProdInno today!
+              </p>
+            </div>
+            <div className="max-w-2xl mx-auto">
+              <RecruitmentForm />
+            </div>
           </div>
-          <div className="max-w-2xl mx-auto">
-            <ContactUsForm />
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
       
       {loading && (
-        <LoadingScreen onFinish={() => setLoading(false)} />
+        <LoadingScreen onFinish={handleLoadingFinish} />
       )}
     </div>
   )

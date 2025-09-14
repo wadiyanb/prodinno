@@ -155,14 +155,15 @@ export default function OurTeam() {
         </div>
 
         <div className="flex justify-center mb-8 md:mb-12">
-          <div className="w-full max-w-4xl overflow-x-auto scrollbar-hide px-2">
-            <div className="flex gap-1 md:gap-2 p-1 min-w-max">
+          <div className="w-full max-w-6xl px-2">
+            {/* Desktop: Grid layout for larger screens */}
+            <div className="hidden lg:grid grid-cols-4 gap-2 p-1">
               {departments.map((dept) => (
                 <button
                   key={dept.id}
                   onClick={() => setActiveDepartment(dept.id)}
                   className={cn(
-                    "px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm whitespace-nowrap transition-colors font-medium",
+                    "px-3 py-2 rounded-full text-sm whitespace-nowrap transition-colors font-medium",
                     activeDepartment === dept.id
                       ? "bg-[#FFD700] text-black"
                       : "text-gray-400 bg-gray-800/50 hover:bg-gray-700/50"
@@ -172,10 +173,48 @@ export default function OurTeam() {
                 </button>
               ))}
             </div>
+            
+            {/* Tablet: 2x4 grid layout */}
+            <div className="hidden md:grid lg:hidden grid-cols-2 gap-2 p-1">
+              {departments.map((dept) => (
+                <button
+                  key={dept.id}
+                  onClick={() => setActiveDepartment(dept.id)}
+                  className={cn(
+                    "px-3 py-2 rounded-full text-sm whitespace-nowrap transition-colors font-medium",
+                    activeDepartment === dept.id
+                      ? "bg-[#FFD700] text-black"
+                      : "text-gray-400 bg-gray-800/50 hover:bg-gray-700/50"
+                  )}
+                >
+                  {dept.name}
+                </button>
+              ))}
+            </div>
+            
+            {/* Mobile: Horizontal scroll */}
+            <div className="md:hidden overflow-x-auto scrollbar-hide">
+              <div className="flex gap-1 p-1 min-w-max">
+                {departments.map((dept) => (
+                  <button
+                    key={dept.id}
+                    onClick={() => setActiveDepartment(dept.id)}
+                    className={cn(
+                      "px-3 py-1.5 rounded-full text-xs whitespace-nowrap transition-colors font-medium",
+                      activeDepartment === dept.id
+                        ? "bg-[#FFD700] text-black"
+                        : "text-gray-400 bg-gray-800/50 hover:bg-gray-700/50"
+                    )}
+                  >
+                    {dept.name}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="space-y-8 md:space-y-12">
+        <div className="space-y-15 md:space-y-12">
           {grouped
             .filter(g => activeDepartment === g.id)
             .map(({ dept, members, id }) => (
