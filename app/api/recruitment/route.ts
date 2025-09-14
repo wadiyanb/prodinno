@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import ExcelJS from 'exceljs';
-import { writeFile, mkdir } from 'fs/promises';
+import { mkdir } from 'fs/promises';
 import { join } from 'path';
 
 export async function POST(request: NextRequest) {
@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
     const dataDir = join(process.cwd(), 'data');
     try {
       await mkdir(dataDir, { recursive: true });
-    } catch (error) {
+    } catch {
       // Directory might already exist, ignore error
     }
 
