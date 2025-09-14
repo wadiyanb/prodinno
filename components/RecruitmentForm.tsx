@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 export default function RecruitmentForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [selectedDepartment, setSelectedDepartment] = useState('');
+  const [selectedSecondPreference, setSelectedSecondPreference] = useState('');
 
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -20,6 +22,15 @@ export default function RecruitmentForm() {
         whyJoin: formData.get('whyJoin') as string,
         department: formData.get('department') as string,
         whyDepartment: formData.get('whyDepartment') as string,
+        secondPreference: formData.get('secondPreference') as string,
+        otherClubs: formData.get('otherClubs') as string,
+        otherInfo: formData.get('otherInfo') as string,
+        // Technical department specific fields
+        arduinoExperience: formData.get('arduinoExperience') as string,
+        aiExperience: formData.get('aiExperience') as string,
+        // Design department specific fields
+        portfolioLink: formData.get('portfolioLink') as string,
+        designExperience: formData.get('designExperience') as string,
       };
 
       const response = await fetch("/api/recruitment", {
@@ -140,6 +151,8 @@ export default function RecruitmentForm() {
             name="department"
             id="department"
             required
+            value={selectedDepartment}
+            onChange={(e) => setSelectedDepartment(e.target.value)}
             className="w-full px-4 py-3 md:py-4 rounded-xl bg-black/70 text-white border border-[#FFD700]/30 focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-transparent transition-all duration-300 hover:border-[#FFD700]/50"
           >
             <option value="" className="bg-black text-white">Select a department</option>
@@ -166,6 +179,197 @@ export default function RecruitmentForm() {
             placeholder="Explain why you're interested in this specific department..."
           />
         </div>
+
+        {/* Second Department Preference */}
+        <div className="space-y-2">
+          <label className="block text-[#FFD700] font-semibold text-sm uppercase tracking-wide" htmlFor="secondPreference">
+            Department you want to join? (2nd Preference) *
+          </label>
+          <p className="text-gray-400 text-xs mb-2">
+            NOTE: You will be interviewed based on your first department preference. If not selected, your second preference will be considered.
+          </p>
+          <select
+            name="secondPreference"
+            id="secondPreference"
+            required
+            value={selectedSecondPreference}
+            onChange={(e) => setSelectedSecondPreference(e.target.value)}
+            className="w-full px-4 py-3 md:py-4 rounded-xl bg-black/70 text-white border border-[#FFD700]/30 focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-transparent transition-all duration-300 hover:border-[#FFD700]/50"
+          >
+            <option value="" className="bg-black text-white">Select a department</option>
+            <option value="Technical" className="bg-black text-white">Technical</option>
+            <option value="Social Media & Outreach" className="bg-black text-white">Social Media & Outreach</option>
+            <option value="Operations & Logistics" className="bg-black text-white">Operations & Logistics</option>
+            <option value="Design" className="bg-black text-white">Design</option>
+            <option value="Product Design & Manufacturing" className="bg-black text-white">Product Design & Manufacturing</option>
+            <option value="Content" className="bg-black text-white">Content</option>
+          </select>
+        </div>
+
+        {/* Other Clubs Field */}
+        <div className="space-y-2">
+          <label className="block text-[#FFD700] font-semibold text-sm uppercase tracking-wide" htmlFor="otherClubs">
+            Are you in any other clubs? If yes, mention below. *
+          </label>
+          <textarea
+            name="otherClubs"
+            id="otherClubs"
+            required
+            rows={3}
+            className="w-full px-4 py-3 md:py-4 rounded-xl bg-black/70 text-white border border-[#FFD700]/30 focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-transparent placeholder-gray-400 transition-all duration-300 hover:border-[#FFD700]/50 resize-vertical min-h-[80px]"
+            placeholder="List any other clubs or organizations you're part of..."
+          />
+        </div>
+
+        {/* Other Relevant Information */}
+        <div className="space-y-2">
+          <label className="block text-[#FFD700] font-semibold text-sm uppercase tracking-wide" htmlFor="otherInfo">
+            Any other relevant information about yourself.
+          </label>
+          <textarea
+            name="otherInfo"
+            id="otherInfo"
+            rows={3}
+            className="w-full px-4 py-3 md:py-4 rounded-xl bg-black/70 text-white border border-[#FFD700]/30 focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-transparent placeholder-gray-400 transition-all duration-300 hover:border-[#FFD700]/50 resize-vertical min-h-[80px]"
+            placeholder="Share any additional information about yourself..."
+          />
+        </div>
+
+        {/* Technical Department Specific Questions */}
+        {(selectedDepartment === 'Technical') && (
+          <div className="space-y-4 p-4 bg-[#FFD700]/10 border border-[#FFD700]/30 rounded-xl">
+            <h3 className="text-[#FFD700] font-semibold text-lg">Technical Department Questions</h3>
+            
+            <div className="space-y-2">
+              <label className="block text-[#FFD700] font-semibold text-sm uppercase tracking-wide" htmlFor="arduinoExperience">
+                Are you familiar with Arduino, Raspberry Pi, ESP8266 or any other component? *
+              </label>
+              <textarea
+                name="arduinoExperience"
+                id="arduinoExperience"
+                required
+                rows={3}
+                className="w-full px-4 py-3 md:py-4 rounded-xl bg-black/70 text-white border border-[#FFD700]/30 focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-transparent placeholder-gray-400 transition-all duration-300 hover:border-[#FFD700]/50 resize-vertical min-h-[80px]"
+                placeholder="Describe your experience with hardware components..."
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="block text-[#FFD700] font-semibold text-sm uppercase tracking-wide" htmlFor="aiExperience">
+                Are you familiar with Artificial Intelligence (AI), Machine Learning (ML), or any other related technologies? *
+              </label>
+              <textarea
+                name="aiExperience"
+                id="aiExperience"
+                required
+                rows={3}
+                className="w-full px-4 py-3 md:py-4 rounded-xl bg-black/70 text-white border border-[#FFD700]/30 focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-transparent placeholder-gray-400 transition-all duration-300 hover:border-[#FFD700]/50 resize-vertical min-h-[80px]"
+                placeholder="Describe your experience with AI/ML technologies..."
+              />
+            </div>
+          </div>
+        )}
+        {(selectedSecondPreference === 'Technical') && (
+          <div className="space-y-4 p-4 bg-[#FFD700]/10 border border-[#FFD700]/30 rounded-xl">
+            <h3 className="text-[#FFD700] font-semibold text-lg">Technical Department Questions</h3>
+            
+            <div className="space-y-2">
+              <label className="block text-[#FFD700] font-semibold text-sm uppercase tracking-wide" htmlFor="arduinoExperience">
+                Are you familiar with Arduino, Raspberry Pi, ESP8266 or any other component? *
+              </label>
+              <textarea
+                name="arduinoExperience"
+                id="arduinoExperience"
+                required
+                rows={3}
+                className="w-full px-4 py-3 md:py-4 rounded-xl bg-black/70 text-white border border-[#FFD700]/30 focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-transparent placeholder-gray-400 transition-all duration-300 hover:border-[#FFD700]/50 resize-vertical min-h-[80px]"
+                placeholder="Describe your experience with hardware components..."
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="block text-[#FFD700] font-semibold text-sm uppercase tracking-wide" htmlFor="aiExperience">
+                Are you familiar with Artificial Intelligence (AI), Machine Learning (ML), or any other related technologies? *
+              </label>
+              <textarea
+                name="aiExperience"
+                id="aiExperience"
+                required
+                rows={3}
+                className="w-full px-4 py-3 md:py-4 rounded-xl bg-black/70 text-white border border-[#FFD700]/30 focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-transparent placeholder-gray-400 transition-all duration-300 hover:border-[#FFD700]/50 resize-vertical min-h-[80px]"
+                placeholder="Describe your experience with AI/ML technologies..."
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Design Department Specific Questions */}
+        {(selectedDepartment === 'Design') && (
+          <div className="space-y-4 p-4 bg-[#FFD700]/10 border border-[#FFD700]/30 rounded-xl">
+            <h3 className="text-[#FFD700] font-semibold text-lg">Design Department Questions</h3>
+            
+            <div className="space-y-2">
+              <label className="block text-[#FFD700] font-semibold text-sm uppercase tracking-wide" htmlFor="portfolioLink">
+                Upload your previous work (upload the work in Google Drive and share the link) *
+              </label>
+              <input
+                type="url"
+                name="portfolioLink"
+                id="portfolioLink"
+                required
+                className="w-full px-4 py-3 md:py-4 rounded-xl bg-black/70 text-white border border-[#FFD700]/30 focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-transparent placeholder-gray-400 transition-all duration-300 hover:border-[#FFD700]/50"
+                placeholder="https://drive.google.com/..."
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="block text-[#FFD700] font-semibold text-sm uppercase tracking-wide" htmlFor="designExperience">
+                Any prior experience in this department? *
+              </label>
+              <textarea
+                name="designExperience"
+                id="designExperience"
+                required
+                rows={3}
+                className="w-full px-4 py-3 md:py-4 rounded-xl bg-black/70 text-white border border-[#FFD700]/30 focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-transparent placeholder-gray-400 transition-all duration-300 hover:border-[#FFD700]/50 resize-vertical min-h-[80px]"
+                placeholder="Describe your design experience and skills..."
+              />
+            </div>
+          </div>
+        )}
+        {(selectedSecondPreference === 'Design') && (
+          <div className="space-y-4 p-4 bg-[#FFD700]/10 border border-[#FFD700]/30 rounded-xl">
+            <h3 className="text-[#FFD700] font-semibold text-lg">Design Department Questions</h3>
+            
+            <div className="space-y-2">
+              <label className="block text-[#FFD700] font-semibold text-sm uppercase tracking-wide" htmlFor="portfolioLink">
+                Upload your previous work (upload the work in Google Drive and share the link) *
+              </label>
+              <input
+                type="url"
+                name="portfolioLink"
+                id="portfolioLink"
+                required
+                className="w-full px-4 py-3 md:py-4 rounded-xl bg-black/70 text-white border border-[#FFD700]/30 focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-transparent placeholder-gray-400 transition-all duration-300 hover:border-[#FFD700]/50"
+                placeholder="https://drive.google.com/..."
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="block text-[#FFD700] font-semibold text-sm uppercase tracking-wide" htmlFor="designExperience">
+                Any prior experience in this department? *
+              </label>
+              <textarea
+                name="designExperience"
+                id="designExperience"
+                required
+                rows={3}
+                className="w-full px-4 py-3 md:py-4 rounded-xl bg-black/70 text-white border border-[#FFD700]/30 focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-transparent placeholder-gray-400 transition-all duration-300 hover:border-[#FFD700]/50 resize-vertical min-h-[80px]"
+                placeholder="Describe your design experience and skills..."
+              />
+            </div>
+          </div>
+        )}
+        
 
         {/* Submit Button */}
         <div className="pt-4">
