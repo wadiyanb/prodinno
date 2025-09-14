@@ -1,11 +1,29 @@
 "use client";
 import React, { useState } from 'react';
 
+const departments = [
+  'Technical',
+  'Social Media & Outreach',
+  'Operations & Logistics',
+  'Design',
+  'Product Design & Manufacturing',
+  'Content'
+];
+
 export default function RecruitmentForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [selectedDepartment, setSelectedDepartment] = useState('');
   const [selectedSecondPreference, setSelectedSecondPreference] = useState('');
+
+  // Reset second preference if it matches the first preference
+  const handleDepartmentChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newValue = e.target.value;
+    setSelectedDepartment(newValue);
+    if (selectedSecondPreference === newValue) {
+      setSelectedSecondPreference('');
+    }
+  };
 
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -152,16 +170,15 @@ export default function RecruitmentForm() {
             id="department"
             required
             value={selectedDepartment}
-            onChange={(e) => setSelectedDepartment(e.target.value)}
+            onChange={handleDepartmentChange}
             className="w-full px-4 py-3 md:py-4 rounded-xl bg-black/70 text-white border border-[#FFD700]/30 focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-transparent transition-all duration-300 hover:border-[#FFD700]/50"
           >
             <option value="" className="bg-black text-white">Select a department</option>
-            <option value="Technical" className="bg-black text-white">Technical</option>
-            <option value="Social Media & Outreach" className="bg-black text-white">Social Media & Outreach</option>
-            <option value="Operations & Logistics" className="bg-black text-white">Operations & Logistics</option>
-            <option value="Design" className="bg-black text-white">Design</option>
-            <option value="Product Design & Manufacturing" className="bg-black text-white">Product Design & Manufacturing</option>
-            <option value="Content" className="bg-black text-white">Content</option>
+            {departments.map((dept) => (
+              <option key={dept} value={dept} className="bg-black text-white">
+                {dept}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -197,12 +214,16 @@ export default function RecruitmentForm() {
             className="w-full px-4 py-3 md:py-4 rounded-xl bg-black/70 text-white border border-[#FFD700]/30 focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-transparent transition-all duration-300 hover:border-[#FFD700]/50"
           >
             <option value="" className="bg-black text-white">Select a department</option>
-            <option value="Technical" className="bg-black text-white">Technical</option>
-            <option value="Social Media & Outreach" className="bg-black text-white">Social Media & Outreach</option>
-            <option value="Operations & Logistics" className="bg-black text-white">Operations & Logistics</option>
-            <option value="Design" className="bg-black text-white">Design</option>
-            <option value="Product Design & Manufacturing" className="bg-black text-white">Product Design & Manufacturing</option>
-            <option value="Content" className="bg-black text-white">Content</option>
+            {departments.map((dept) => (
+              <option 
+                key={dept} 
+                value={dept} 
+                className="bg-black text-white"
+                disabled={dept === selectedDepartment}
+              >
+                {dept} {dept === selectedDepartment ? '(Already Selected)' : ''}
+              </option>
+            ))}
           </select>
         </div>
 

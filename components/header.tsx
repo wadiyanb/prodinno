@@ -38,7 +38,7 @@ export default function Header() {
               FAQ
             </a>
             <a href="#contact" className="text-white hover:text-[#FFD700] transition-colors text-sm lg:text-base">
-              Contact
+              Registration
             </a>
           </div>
 
