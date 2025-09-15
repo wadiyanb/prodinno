@@ -7,7 +7,6 @@ import Particles from '@/components/particles';
 import LoadingScreen from '@/components/LoadingScreen';
 import { useState } from 'react';
 import OurTeam from '@/components/our-team';
-import RecruitmentForm from '@/components/RecruitmentForm';
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [contentVisible, setContentVisible] = useState(false);
