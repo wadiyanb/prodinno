@@ -47,31 +47,18 @@ export default function Home() {
       </div>
       
       {/* Foreground content with fade-in animation */}
-      <div className={`transition-opacity duration-700 ${contentVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <div
+        className={`transition-opacity duration-700 ${contentVisible ? 'opacity-100' : 'opacity-0'}`}
+        style={{ background: 'transparent', position: 'relative', zIndex: 1 }}
+      >
         <CursorEffect />
         <Header />
-        <main style={{ position: 'relative', zIndex: 1 }}>
+        <main>
           <Hero />
           <OurTeam />
           <FAQ />
         </main>
-        
-        {/* Recruitment Section */}
-        <section id="recruitment" className="py-16 md:py-20 px-4 relative z-10">
-          <div className="container mx-auto max-w-4xl">
-            <div className="text-center mb-8 md:mb-12">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 animate-fade-in-up">
-                Join Our Team
-              </h2>
-              <p className="text-gray-300 text-base md:text-lg lg:text-xl animate-fade-in-up">
-                Ready to be part of something innovative? Apply to join ProdInno today!
-              </p>
-            </div>
-            <div className="max-w-2xl mx-auto">
-              <RecruitmentForm />
-            </div>
-          </div>
-        </section>
+        {/* ...existing code... */}
       </div>
       
       {loading && (

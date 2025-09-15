@@ -37,9 +37,10 @@ export default function Header() {
             <a href="#faq" className="text-white hover:text-[#FFD700] transition-colors text-sm lg:text-base">
               FAQ
             </a>
-            <a href="#contact" className="text-white hover:text-[#FFD700] transition-colors text-sm lg:text-base">
+            {/* Contact removed */}
+            <Link href="/registration" className="text-white hover:text-[#FFD700] transition-colors text-sm lg:text-base">
               Registration
-            </a>
+            </Link>
           </div>
 
           <div className="ml-auto flex items-center md:hidden">
@@ -91,13 +92,14 @@ export default function Header() {
             >
               FAQ
             </a>
-            <a
-              href="#contact"
+            {/* Contact removed */}
+            <Link
+              href="/registration"
               className="text-white hover:text-[#FFD700] transition-colors text-xl font-medium py-3"
               onClick={() => setIsOpen(false)}
             >
-              Contact
-            </a>
+              Registration
+            </Link>
             
             {/* Social links in mobile menu */}
             <div className="flex gap-4 mt-8">
