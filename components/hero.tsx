@@ -3,7 +3,7 @@ import { useEffect, useState, Suspense } from 'react'
 import dynamic from 'next/dynamic'
 import LogoHeader from './Logo'
 import localFont from 'next/font/local'
-
+import TextType from './type-text'
 // Import Spline dynamically without SSR
 const Spline = dynamic(() => import('@splinetool/react-spline'), {
   ssr: false,
@@ -74,16 +74,40 @@ export default function Hero() {
       )}
       
       {/* Rest of the content */}
-      <div className="relative z-10 flex flex-col items-center lg:items-start justify-start h-full -mt-28 md:-mt-32 lg:-mt-16 px-0">
+      <div className="relative z-10 flex flex-col items-center lg:items-start justify-start min-h-screen pb-20 sm:pb-16 -mt-28 md:-mt-32 lg:-mt-16 px-0">
         <div className="relative w-[200vw] flex items-center justify-center transform scale-[0.7] sm:scale-[0.55] md:scale-[0.65] lg:scale-[1] lg:justify-start lg:ml-[-1050px] mx-auto -translate-x-28">
           <LogoHeader />
         </div>
-        <div className="mt-2 md:mt-4 w-full flex justify-center lg:justify-start">
+        <div className="-mt-3 md:mt-4 w-full flex flex-col items-center lg:items-start">
           <h2
-            className={`text-base md:text-lg lg:text-xl xl:text-2xl font-normal text-[#FFD700] text-center lg:text-left mt-32 px-4 lg:px-10 max-w-2xl lg:max-w-none lg:-mt-40 ${technor.className}`}
+            className={`text-base md:text-lg lg:text-xl xl:text-2xl font-normal text-[#FFD700] text-center lg:text-left mt-24 sm:mt-32 px-4 lg:px-10 max-w-2xl lg:max-w-none lg:-mt-40 ${technor.className}`}
           >
             The Product Innovation Club of VIT Chennai
           </h2>
+          <div className="-mt-1 sm:mt-6 md:mt-8 flex flex-col items-center lg:items-start space-y-4 px-4 lg:px-10">
+            <div className="relative w-full lg:w-auto">
+              <TextType
+                text={["We are Recruiting Now", "We are Recruiting Now"]}
+                className={`text-lg md:text-xl lg:text-2xl text-[#FFD700] text-center lg:text-left italic font-italic ${technor.className}`}
+                typingSpeed={50}
+                pauseDuration={2000}
+                deletingSpeed={30}
+                showCursor={true}
+                cursorClassName="text-[#FFD700]"
+                initialDelay={1000}
+              />
+            </div>
+            <a 
+              href="/registration"
+              className={`inline-block bg-gradient-to-r from-[#FFD700] to-[#FFA500] hover:from-[#FFA500] hover:to-[#FFD700] 
+                text-black text-base md:text-lg font-bold py-2.5 px-6 md:py-3 md:px-8 rounded-xl 
+                transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[#FFD700]/25 
+                focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-black 
+                relative z-20 mt-8 ${technor.className}`}
+            >
+              Apply Now
+            </a>
+          </div>
         </div>
       </div>
       

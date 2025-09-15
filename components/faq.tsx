@@ -11,7 +11,7 @@ import {
 const faqs = [
   {
     question: "How can I join ProdInno?",
-    answer: "Joining ProdInno is easy! We welcome all students interested in product design and innovation. Simply attend our next general meeting or sign up through our registration form."
+    answer: "Joining ProdInno is easy! We welcome all students interested in product design and innovation. Simply sign up through our registration form."
   },
   {
     question: "What activities does ProdInno organize?",
