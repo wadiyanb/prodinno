@@ -10,11 +10,31 @@ const geistSans = localFont({
 
 export const metadata: Metadata = {
   title: "ProdInno | VIT Chennai",
-  description: "A club to foster innovation and product development at VIT Chennai)",
-  authors: [
-    {
+  description: "ProdInno is the Product Innovation Club at VIT Chennai, fostering innovation, product development, and entrepreneurship among students. Join us to build, innovate, and create impactful products.",
+  keywords: ["ProdInno", "VIT Chennai", "Product Innovation", "Innovation Club", "Product Development", "Entrepreneurship", "VIT", "Student Club"],
+  authors: [{ name: "ProdInno" }],
+  openGraph: {
+    title: "ProdInno | VIT Chennai - Product Innovation Club",
+    description: "ProdInno is the Product Innovation Club at VIT Chennai, fostering innovation, product development, and entrepreneurship among students.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ProdInno | VIT Chennai",
+    description: "ProdInno is the Product Innovation Club at VIT Chennai, fostering innovation, product development, and entrepreneurship among students.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
-  ]
+  },
 };
 
 export default function RootLayout({
