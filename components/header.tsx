@@ -37,10 +37,6 @@ export default function Header() {
             <a href="#faq" className="text-white hover:text-[#FFD700] transition-colors text-sm lg:text-base">
               FAQ
             </a>
-            {/* Contact removed */}
-            <Link href="/registration" className="text-white hover:text-[#FFD700] transition-colors text-sm lg:text-base">
-              Registration
-            </Link>
           </div>
 
           <div className="ml-auto flex items-center md:hidden">
