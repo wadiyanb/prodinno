@@ -84,30 +84,6 @@ export default function Hero() {
           >
             The Product Innovation Club of VIT Chennai
           </h2>
-          <div className="-mt-1 sm:mt-6 md:mt-8 flex flex-col items-center lg:items-start space-y-4 px-4 lg:px-10">
-            <div className="relative w-full lg:w-auto">
-              <TextType
-                text={["We are Recruiting Now", "We are Recruiting Now"]}
-                className={`text-lg md:text-xl lg:text-2xl text-[#FFD700] text-center lg:text-left italic font-italic ${technor.className}`}
-                typingSpeed={50}
-                pauseDuration={2000}
-                deletingSpeed={30}
-                showCursor={true}
-                cursorClassName="text-[#FFD700]"
-                initialDelay={1000}
-              />
-            </div>
-            <a 
-              href="/registration"
-              className={`inline-block bg-gradient-to-r from-[#FFD700] to-[#FFA500] hover:from-[#FFA500] hover:to-[#FFD700] 
-                text-black text-base md:text-lg font-bold py-2.5 px-6 md:py-3 md:px-8 rounded-xl 
-                transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[#FFD700]/25 
-                focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-black 
-                relative z-20 mt-8 ${technor.className}`}
-            >
-              Apply Now
-            </a>
-          </div>
         </div>
       </div>
       
