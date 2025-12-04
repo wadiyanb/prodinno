@@ -3,7 +3,6 @@ import { useEffect, useState, Suspense } from 'react'
 import dynamic from 'next/dynamic'
 import LogoHeader from './Logo'
 import localFont from 'next/font/local'
-import TextType from './type-text'
 // Import Spline dynamically without SSR
 const Spline = dynamic(() => import('@splinetool/react-spline'), {
   ssr: false,
