@@ -23,6 +23,7 @@ export default function Header() {
                   objectFit: 'contain'
                 }}
                 priority
+                unoptimized
               />
             </div>
           </Link>
