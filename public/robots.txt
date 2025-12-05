@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://prodinno.netlify.app/sitemap.xml

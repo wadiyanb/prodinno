@@ -9,6 +9,7 @@ const geistSans = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://prodinno.netlify.app'),
   title: "ProdInno | VIT Chennai",
   description: "ProdInno is the Product Innovation Club at VIT Chennai, fostering innovation, product development, and entrepreneurship among students. Join us to build, innovate, and create impactful products.",
   keywords: ["ProdInno", "VIT Chennai", "Product Innovation", "Innovation Club", "Product Development", "Entrepreneurship", "VIT", "Student Club"],
